@@ -54,6 +54,17 @@ When changing state variables events are not emitted. Emitting events allows mon
 src/Vault.sol:L350             function setClaimTVL(uint256 id, uint256 claimTVL) public onlyController {
 
 ```
+### [L-05] zero-address checks are missing
+
+
+#### Impact
+Zero-address checks are a best practice for input validation of critical address parameters. Accidental use of zero-addresses may result in exceptions, burn fees/tokens, or force redeployment of contracts.
+
+#### Findings:
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/RewardsFactory.sol#L68-L70
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L81-L83
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L312
+
 ### [N-01] Open TODOs
 
 
