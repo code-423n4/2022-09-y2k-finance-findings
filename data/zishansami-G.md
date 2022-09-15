@@ -153,9 +153,94 @@ src/rewards/StakingRewards.sol
 ### G-06: Adding `payable` to functions which are only meant to be called by specific actors like `onlyOwner` will save gas cost
 Marking functions payable removes additional checks for whether a payment was provided, hence reducing gas cost
 
-Total instances of this issue: 2
+Total instances of this issue: 10
 
 instance #1
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L178-L186
+```solidity
+src/VaultFactory.sol
+
+178:    function createNewMarket(
+179:        uint256 _withdrawalFee,
+180:        address _token,
+181:        int256 _strikePrice,
+182:        uint256 epochBegin,
+183:        uint256 epochEnd,
+184:        address _oracle,
+185:        string memory _name
+186:    ) public onlyAdmin returns (address insr, address rsk) {
+
+```
+
+instance #2
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L248-L253
+```solidity
+src/VaultFactory.sol
+
+248:    function deployMoreAssets(
+249:        uint256 index,
+250:        uint256 epochBegin,
+251:        uint256 epochEnd,
+252:        uint256 _withdrawalFee
+253:    ) public onlyAdmin {
+
+```
+
+instance #3
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L295
+```solidity
+src/VaultFactory.sol
+
+295:    function setController(address _controller) public onlyAdmin {
+
+```
+
+instance #4
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L308-L311
+```solidity
+src/VaultFactory.sol
+
+308:    function changeTreasury(address _treasury, uint256 _marketIndex)
+309:        public
+310:        onlyAdmin
+311:    {
+
+```
+
+instance #5
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L327-L330
+```solidity
+src/VaultFactory.sol
+
+327:    function changeTimewindow(uint256 _marketIndex, uint256 _timewindow)
+328:        public
+329:        onlyAdmin
+330:    {
+
+```
+
+instance #6
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L345-L348
+```solidity
+src/VaultFactory.sol
+
+345:    function changeController(uint256 _marketIndex, address _controller)
+346:        public
+347:        onlyAdmin
+348:    {
+
+```
+
+instance #7
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L366
+```solidity
+src/VaultFactory.sol
+
+366:    function changeOracle(address _token, address _oracle) public onlyAdmin {
+
+```
+
+instance #8
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L213-L216
 ```solidity
 src/rewards/StakingRewards.sol
@@ -167,12 +252,25 @@ src/rewards/StakingRewards.sol
 
 ```
 
-instance #2
+instance #9
 Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L225
 ```solidity
 src/rewards/StakingRewards.sol
 
 225:    function setRewardsDuration(uint256 _rewardsDuration) external onlyOwner {
+
+```
+
+instance #10
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/RewardsFactory.sol#L83-L87
+```solidity
+src/rewards/RewardsFactory.sol
+
+83:    function createStakingRewards(uint256 _marketIndex, uint256 _epochEnd, uint256 _rewardDuration, uint256 _rewardRate)
+84:        external
+85:        onlyAdmin
+86:        returns (address insr, address risk)
+87:    {
 
 ```
 
