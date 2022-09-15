@@ -200,3 +200,17 @@ the function below does not emit event when changing critical state.
 ```
       function createAssets(uint256 epochBegin, uint256 epochEnd, uint256 _withdrawalFee)
 ```
+
+## invalid link in comment in StakingRewards.sol 
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/ac3e86f07bc2f1f51148d2265cc897e8b494adf7/src/rewards/StakingRewards.sol#L21
+
+in stakingRewards.sol
+
+the link in comment is 
+
+// https://docs.synthetix.io/contracts/source/contracts/stakingrewards,
+
+but the correct link is 
+
+https://docs.synthetix.io/contracts/source/contracts/StakingRewards/
