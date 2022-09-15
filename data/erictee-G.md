@@ -216,6 +216,12 @@ src/oracles/PegOracle.sol:L23        require(_oracle1 != address(0), "oracle1 ca
 
 src/oracles/PegOracle.sol:L24        require(_oracle2 != address(0), "oracle2 cannot be the zero address");
 
+src/SemiFungibleVault.sol:L116        require(
+
+src/rewards/StakingRewards.sol:L217        require(
+
+src/rewards/StakingRewards.sol:L226        require(
+
 ```
 ### [G-13] Explicit initialization with zero not required
 
