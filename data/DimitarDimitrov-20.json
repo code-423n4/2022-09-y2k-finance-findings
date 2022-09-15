@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "DimitarDimitrov",
+  "address": "0x6e8cd81029361d213b8d2d5b2d2064384618fd1f",
+  "risk": "2",
+  "title": "Set owner in constructor",
+  "issueId": 20,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/20"
+}
