@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "praneshasp",
+  "address": "0xf8b75d902ff3c8032b124ca92da5f8ec3760f250",
+  "risk": "2",
+  "title": "Issue with the beforeWithdraw() hook (low-medium)",
+  "issueId": 35,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/35"
+}
