@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "zzzitron",
+  "address": "0xe30880FedbDC6E8B0c7DdD175c50cBb2Fb55eE25",
+  "risk": "3",
+  "title": "`Vault:deposit` should transfer the amount `assets` and not `shares`.",
+  "issueId": 78,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/78"
+}
