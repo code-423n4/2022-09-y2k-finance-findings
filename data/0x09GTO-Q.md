@@ -1,0 +1,1 @@
+when I connect my wallet I find some irregularities such as disconnecting itself and the web is always error maybe it's because of the lack of security on the website
