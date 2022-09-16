@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0x52",
+  "address": "0x522dffc539c264a8f7e0b91102e899b33f4dabc3",
+  "risk": "2",
+  "title": "PegOracle.sol always returns 0 for assets with 18 decimals",
+  "issueId": 46,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/46"
+}
