@@ -16,10 +16,8 @@ Line 96	        _mint(receiver, id, shares, EMPTY):
 these address variables are not checked whether they are address(0), address variable should check if it is zero
 ```
 	line 36: caller
-	line 37: indexed
 	line 36: caller
 	line 53: receiver
-	line 37: indexed
 	line 88: receiver
 	line 53: receiver
 	line 114: owner
