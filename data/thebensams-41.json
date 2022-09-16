@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "thebensams",
+  "address": "0x77ca952092460102b3f4e315a57c484e2490d099",
+  "risk": "2",
+  "title": "y2k Vault does not implement ERC-4626 functions mint/redeem",
+  "issueId": 41,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/41"
+}
