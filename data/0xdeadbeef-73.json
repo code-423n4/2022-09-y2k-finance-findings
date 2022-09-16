@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0xdeadbeef",
+  "address": "0x0af89c57c16da5befe2532370c88e41bc4648649",
+  "risk": "2",
+  "title": "TOKEN TRANSFERS DO NOT VERIFY THAT THE TOKENS WERE SUCCESSFULLY TRANSFERRED",
+  "issueId": 73,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/73"
+}
