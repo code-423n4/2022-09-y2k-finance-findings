@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0x52",
+  "address": "0x522dffc539c264a8f7e0b91102e899b33f4dabc3",
+  "risk": "2",
+  "title": "StakingRewards.sol#stake is intended to be pausable but isn't",
+  "issueId": 38,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/38"
+}
