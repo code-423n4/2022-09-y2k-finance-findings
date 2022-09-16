@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0x52",
+  "address": "0x522dffc539c264a8f7e0b91102e899b33f4dabc3",
+  "risk": "2",
+  "title": "Buying insuance from an empty risk vault will result in permanant loss of access to funds",
+  "issueId": 48,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/48"
+}
