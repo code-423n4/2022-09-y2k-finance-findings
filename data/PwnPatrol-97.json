@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "PwnPatrol",
+  "address": "0x92100Ef14c79DebbaB331AFb994FA18AC6F2E82D",
+  "risk": "3",
+  "title": "Any Y2K tokens approved to be traded on Uniswap can be stolen from users",
+  "issueId": 97,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/97"
+}
