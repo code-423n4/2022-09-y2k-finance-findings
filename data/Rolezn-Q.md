@@ -493,7 +493,9 @@ Severity: Non-Critical
 Function in StakingRewards.sol are lacking any NATSPEC documentation to its functions.
 
 ## Proof of Concept
+
 For example:
+
     function stake(uint256 amount)
         external
         nonReentrant
