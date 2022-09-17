@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "rotcivegaf",
+  "address": "0xba910716fd4b6b4447aea613993898eeb63844ad",
+  "risk": "3",
+  "title": "Use misunderstood of `isApprovedForAll`",
+  "issueId": 112,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/112"
+}
