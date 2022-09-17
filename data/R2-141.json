@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "R2",
+  "address": "0xfc0aa76d96a80937288968ade92b6cfcb9ab7f17",
+  "risk": "3",
+  "title": "``triggerDepeg()`` and ``triggerEndEpoch()`` can be frontrunned",
+  "issueId": 141,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/141"
+}
