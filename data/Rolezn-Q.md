@@ -485,3 +485,31 @@ Severity: Non-Critical
 
     ) = sequencerUptimeFeed.latestRoundData();
 https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/Controller.sol#L266-L273
+
+## (14) Insufficient NATSPEC documentation
+
+Severity: Non-Critical
+
+Function in StakingRewards.sol are lacking any NATSPEC documentation to its functions.
+
+## Proof of Concept
+For example:
+    function stake(uint256 amount)
+        external
+        nonReentrant
+        whenNotPaused
+        updateReward(msg.sender)
+    {
+        require(amount != 0, "Cannot stake 0");
+        _totalSupply = _totalSupply.add(amount);
+        _balances[msg.sender] = _balances[msg.sender].add(amount);
+        stakingToken.safeTransferFrom(
+            msg.sender,
+            address(this),
+            id,
+            amount,
+            ""
+        );
+        emit Staked(msg.sender, id, amount);
+    }
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingRewards.sol#L90-L107
