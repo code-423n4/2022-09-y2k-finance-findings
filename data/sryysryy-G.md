@@ -3,7 +3,7 @@
 ```solidity
 src/Vault.sol::443 => for (uint256 i = 0; i < epochsLength(); i++) {
 ```
-
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L443
 &nbsp;
 &nbsp;
 
@@ -12,7 +12,7 @@ src/Vault.sol::443 => for (uint256 i = 0; i < epochsLength(); i++) {
 ```solidity
 src/Vault.sol::443 => for (uint256 i = 0; i < epochsLength(); i++) {
 ```
-
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L443
 &nbsp;
 &nbsp;
 
@@ -24,6 +24,10 @@ PegOracle.sol::121 => require(price2 > 0, "Chainlink price <= 0");
 StakingRewards.sol::119 => require(amount > 0, "Cannot withdraw 0");
 Vault.sol::187 => require(msg.value > 0, "ZeroValue");
 ```
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/oracles/PegOracle.sol#L98
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/oracles/PegOracle.sol#L121
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L187
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L119
 
 &nbsp;
 &nbsp;
@@ -35,8 +39,8 @@ Vault.sol::187 => require(msg.value > 0, "ZeroValue");
 Vault.sol::52 =>     mapping(uint256 => bool) public idDepegged;
 Vault.sol::54 =>     mapping(uint256 => bool) public idExists;
 ```
-
-
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L52
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L54
 &nbsp;
 &nbsp;
 
@@ -48,7 +52,9 @@ rewards/StakingRewards.sol::44 =>    mapping(address => uint256) public reward
 rewards/StakingRewards.sol::47 =>    mapping(address => uint256) private _balances;
 VaultFactory.sol::121 =>    mapping(address => address) public tokenToOracle;
 ```
-
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L43
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L44
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L47
 
 &nbsp;
 &nbsp;
@@ -58,5 +64,5 @@ VaultFactory.sol::121 =>    mapping(address => address) public tokenToOracle;
 ```solidity
 Controller.sol::16 =>    uint256 public constant VAULTS_LENGTH = 2;
 ```
-
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Controller.sol#L16
 
