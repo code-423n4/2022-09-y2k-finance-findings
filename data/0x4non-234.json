@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0x4non",
+  "address": "0x38c40ead3d0fe7959eb9dfe8337b3c4929884d2c",
+  "risk": "3",
+  "title": "Wrong access control, funds can be loss using `withdraw` function, malicius user can replay call to empty user wallet",
+  "issueId": 234,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/234"
+}
