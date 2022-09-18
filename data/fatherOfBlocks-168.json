@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "fatherOfBlocks",
+  "address": "0xd5a2686b02a15b5269848dee6e913f07f459782e",
+  "risk": "2",
+  "title": "Lack of validation in transfers causing burning of tokens incorrectly.",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/168"
+}
