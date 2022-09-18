@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "pashov",
+  "address": "0x1797c3bcebf8c858a916fcbbd0359f65f5484915",
+  "risk": "2",
+  "title": "Incomplete price validation from Chainlink’s `latestRoundData()` can lead to the protocol using stale price",
+  "issueId": 228,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/228"
+}
