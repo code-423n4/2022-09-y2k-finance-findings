@@ -28,8 +28,17 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/oracles/PegOracl
 
 ## safeTransfer and safeTransferFrom
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L167
-https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L190
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L228
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L231
 
-`SafeTransferLib` has been inherited from `SemiFungibleVault.sol`. Where possible, use `safeTransfer` and `safeTransferFrom` instead of `transfer` and `transferFrom` since the contract is dealing with different assets in different Vaults. This would cater for non-standard ERC20 tokens that don’t have boolean return values, just in case.
+`SafeTransferLib` has been inherited from `SemiFungibleVault.sol`. Where possible, use `safeTransfer` and `safeTransferFrom` instead of `transfer` and `transferFrom` to cater for non-standard ERC20 tokens that don’t have boolean return values, just in case.
+
+Note: The following line of code will have to stay intact, serving to conform with `IWETH.sol` though:
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L190
+
+## Zero Address and Zero Value Checks for StakingRewards.sol
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L81-L86
+
+Zero address and zero value checks should be implemented when deploying the contract. This is because there is no setter functions for these state variables. In the event a mistake was done at `RewardsFactory.sol`, not only that all calls associated with it would be non-functional, the contract would also have to be redeployed.
