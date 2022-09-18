@@ -65,3 +65,9 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L443-L
         }
 ```
 Note: "Checked" math, which is default in 0.8.0 is not free. The compiler will add some overflow checks, somehow similar to those implemented by `SafeMath`. While it is reasonable to expect these checks to be less expensive than the current `SafeMath`, one should keep in mind that these checks will increase the cost of "basic math operation" that were not previously covered. This particularly concerns variable increments in for loops. Considering no arithmetic overflow/underflow is going to happen here, `unchecked { ++i ;}` to use the previous wrapping behavior further saves gas in the above for loop. 
+
+## Turn `convertToAssets()` and  `convertToShares()` into Inline Codes
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/SemiFungibleVault.sol#L143-L153
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/SemiFungibleVault.sol#L159-L168
+
+`previewRedeem()` and `previewDeposit()` respectively route from their returned values to `convertToAssets()` and  `convertToShares()`, when the latter's codes could correspondingly be included inline with the former just like it has been done for `previewMint()` and `previewWithdraw()`. This will reduce gas both in contract size and method calling. 
