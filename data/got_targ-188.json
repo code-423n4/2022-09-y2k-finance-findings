@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "got_targ",
+  "address": "0x268d2b4c4f856c8665cf6ee4609b5165ff0ebacf",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 188,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/188"
+}
