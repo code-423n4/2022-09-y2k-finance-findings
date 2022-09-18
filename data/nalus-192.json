@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "nalus",
+  "address": "0x5d4fca61cc6ce10073372c7c246940066057249e",
+  "risk": "3",
+  "title": "Using transfer() for transfering value should be avoided",
+  "issueId": 192,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/192"
+}
