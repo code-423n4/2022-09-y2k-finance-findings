@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "async",
+  "address": "0x7841f2064bbaf90127ca0eed5b004020bf9ca819",
+  "risk": "2",
+  "title": "controller can steal TVL & Missing events/timelocks for owner/onlyFactory functions that change critical parameters",
+  "issueId": 194,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/194"
+}
