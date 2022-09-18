@@ -1,0 +1,3 @@
+- `i++` can be replaced with `++i` in `Vault.getNextEpoch` and the loop increase can be marked as `unchecked` (https://github.com/code-423n4/2022-09-y2k-finance/blob/bca5080635370424a9fe21fe1aded98345d1f723/src/Vault.sol#L442)
+- Because `totalAssets(id) == totalSupply(id)` in `Vault`, the calculations that are performed by the `convertTo` functions in `SemiFungibleVault` are a waste of gas for this vault type. Consider overwriting them and simply returning the shares / assets amount, which would save gas.
+- Using `SafeMath` in `StakingRewards` (https://github.com/code-423n4/2022-09-y2k-finance/blob/bca5080635370424a9fe21fe1aded98345d1f723/src/rewards/StakingRewards.sol#L29) is unnecessary and a waste of gas when using Solidity 0.8.x
