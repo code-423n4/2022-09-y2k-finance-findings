@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "cryptphi",
+  "address": "0x876133657f5356e376b7ae27d251444727ce9488",
+  "risk": "3",
+  "title": "PegOracle price can be influenced by stale oracle price.",
+  "issueId": 322,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/322"
+}
