@@ -247,3 +247,20 @@ Not inlining costs 20 to 40 gas because of two extra JUMP instructions and addit
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/SemiFungibleVault.sol#L276
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/SemiFungibleVault.sol#L282
+
+20. Don't compare boolean expressions to boolean literals
+
+if (<x> == true) => if (<x>), if (<x> == false) => if (!<x>)
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L93
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L211
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L96
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L217
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L314
+
+21. "OR" conditions cost less gas than their equivalent "AND" conditions 
+
+Remember that the equivalent of (a && b) is !(!a || !b)
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L96
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L215-L217
