@@ -62,6 +62,7 @@ File StakingRewards.sol, line 36:
     uint256 public periodFinish = 0;
 
 Becomes:
+
     uint256 public periodFinish;
 
 # 5. [G-5] Using uncheck blocks to save gas
@@ -140,3 +141,42 @@ Becomes:
 ##### Instances include:
 
 File Vault.sol, line 399, 407, 419
+
+# 6. [G-6] Using temporary memory 
+
+File Controller.sol, line 96-99:
+
+    if(
+       vault.strikePrice() < getLatestPrice(vault.tokenInsured())
+       )
+       revert PriceNotAtStrikePrice(getLatestPrice(vault.tokenInsured()));
+
+Becomes:
+
+    int256 nowPrice = getLatestPrice(vault.tokenInsured());
+    if(
+       vault.strikePrice() < nowPrice
+       )
+       revert PriceNotAtStrikePrice(nowPrice);
+
+File Controller.sol, line 199-206:
+
+    if(
+       vaultFactory.getVaults(marketIndex).length != VAULTS_LENGTH)
+           revert MarketDoesNotExist(marketIndex);
+    if(
+       block.timestamp < epochEnd)
+       revert EpochNotExpired();
+
+    address[] memory vaultsAddress = vaultFactory.getVaults(marketIndex);
+
+Becomes:
+
+    address[] memory vaultsAddress = vaultFactory.getVaults(marketIndex);
+
+    if(
+       vaultsAddress.length != VAULTS_LENGTH)
+           revert MarketDoesNotExist(marketIndex);
+    if(
+       block.timestamp < epochEnd)
+       revert EpochNotExpired();
