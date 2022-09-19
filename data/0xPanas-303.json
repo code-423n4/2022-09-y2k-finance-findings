@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0xPanas",
+  "address": "0xa322bD417154D04d5704952E550288f0f91044Bd",
+  "risk": "2",
+  "title": "`PegOracle` don't support tokens with more than 18 decimals",
+  "issueId": 303,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/303"
+}
