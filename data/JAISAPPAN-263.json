@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "JAISAPPAN",
+  "address": "0x6a344cd7f1cfc77b9239ff6ed46b5b3adc44f466",
+  "risk": "2",
+  "title": "\"TransferSingle\" event is not emited in the function deposit() in SemiFungibleVault.sol Or not even in the solmate SafeTrasferLib. This is not in accodarance with the \"Safe Transfer Rules\" in EIP-1155. Because of this  all the balance changes are not getting reflected properly.This may be a potential reason for failing tests when fuzzing deposits after a certain number of valid runs.",
+  "issueId": 263,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/263"
+}
