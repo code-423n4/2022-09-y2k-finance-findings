@@ -7,7 +7,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147ed
 
 ## 2. Withdrawal before epoch begins
 
-Maybe allow the withdrawal of funds before the epoch begins to fix mistakes etc regarding deposit amounts. Can be ignored if this is the intended method of operation.
+Maybe allow the withdrawal of funds before the epoch begins to fix mistakes etc regarding deposit amounts. Current implementation only allows withdrawal after depeg event, or epochEnd. Can be ignored if this is the intended method of operation.
 
 # Non-Critical
 
