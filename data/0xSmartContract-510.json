@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0xSmartContract",
+  "address": "0x1c9eadb67e158ac831c3922ea17e370a99bcc8f4",
+  "risk": "2",
+  "title": "Wrong Math for latestRoundData",
+  "issueId": 510,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/510"
+}
