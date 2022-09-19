@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "Lead_Belly",
+  "address": "0x2d3345527bf47b1753bb93508ddb66796f0f756f",
+  "risk": "3",
+  "title": "Vault does not verify that tokens were transferred successfully.",
+  "issueId": 491,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/491"
+}
