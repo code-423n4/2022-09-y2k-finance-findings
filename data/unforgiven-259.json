@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "unforgiven",
+  "address": "0x6e6c53f81e310d53387dc2166ee9a632cf768fa1",
+  "risk": "3",
+  "title": "funds lock in Vaults when one of risk or hedge Vaults has 0 TVL, because triggerDepeg() and triggerEndEpoch() logic would revert if TVL==0 for one of the vaults and epoch won't end and so users can't withdraw funds from vaults",
+  "issueId": 259,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/259"
+}
