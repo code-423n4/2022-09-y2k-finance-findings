@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "eierina",
+  "address": "0xf33c7ddf676e7bc589d7ab052a9739fa1354aa92",
+  "risk": "3",
+  "title": "End epoch cannot be triggered preventing winners to withdraw",
+  "issueId": 278,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/278"
+}
