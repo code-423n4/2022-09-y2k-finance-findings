@@ -53,3 +53,10 @@ Consider writing out the logic of `updateReward()` to avoid the call to `earning
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/StakingRewards.sol#L183-L210
 `notifyRewardAmount()` accesses the state variable `rewardsDuration` multiple times. Gas can be saved by copying the state variable into a memory variable and then using the memory variable throughout the code.
 `rewardsDuration` is used on lines 190,194,203,208.
+
+
+# PegOracle.sol
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L73
+The call to `priceFeed1.decimals()` is unnecessary as this value has already been stored in the state variable `decimals`. The only reason to continue making the external call would be if the price feed's decimals might change, but then the same check would be needed for `priceFeed2.decimals()`, and that is not being made.
+Consider rewrting line 73 as:
+`        int256 decimals10 = int256(10**(18 - decimals));`
