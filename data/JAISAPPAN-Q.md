@@ -1,0 +1,1 @@
+The protocol says, the customers have incentives for joining early in the vaults. But it is based only on duration and it may be sustainable if the incentive is based on Time Weighted Average.
