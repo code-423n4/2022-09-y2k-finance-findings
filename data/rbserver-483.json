@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "rbserver",
+  "address": "0x4bd9605a3e546f3400df2c2be7b1c775aeea56bd",
+  "risk": "2",
+  "title": "`timewindow` can be changed unexpectedly that blocks users from calling `deposit` function",
+  "issueId": 483,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/483"
+}
