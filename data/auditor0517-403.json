@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "auditor0517",
+  "address": "0x0fcf87f1ca8ea435f2517880a33329005c464127",
+  "risk": "2",
+  "title": "Use safeTransfer/safeTransferFrom consistently instead of transfer/transferFrom",
+  "issueId": 403,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/403"
+}
