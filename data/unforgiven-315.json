@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "unforgiven",
+  "address": "0x6e6c53f81e310d53387dc2166ee9a632cf768fa1",
+  "risk": "2",
+  "title": "functions withdraw() and deposit() in Vault contract use shares variable instead of assets to transfer user assets",
+  "issueId": 315,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/315"
+}
