@@ -1,4 +1,4 @@
-# Gas | QA
+# Gas Optimization
 
 ## ✅ G-1: Don't Initialize Variables with Default Value
 
