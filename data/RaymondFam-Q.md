@@ -42,3 +42,8 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L190
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L81-L86
 
 Zero address and zero value checks should be implemented when deploying the contract. This is because there is no setter functions for these state variables. In the event a mistake was done at `RewardsFactory.sol`, not only that all calls associated with it would be non-functional, the contract would also have to be redeployed.
+
+## Vaults Usable by DAOs
+Since all vaults are going to be usable by DAOs, i.e., accepting deposits and withdraws on behalf of other users, by using approve ERC1155 functions on withdraw, and recipient/owner params inside both deposit/withdraw functions, the following instance should have `&&` replaced by `||` in the if condition: 
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L215-L218
