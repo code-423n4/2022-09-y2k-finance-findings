@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "hyh",
+  "address": "0x8efE50a4b8c8B64FDC93a5b1712Fd735d8223cD5",
+  "risk": "3",
+  "title": "PegOracle reported fraction price is constructed to favor the depeg",
+  "issueId": 419,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/419"
+}
