@@ -8,7 +8,7 @@ File: src/Vault.sol
 
 443:        for (uint256 i = 0; i < epochsLength(); i++) {
 ```
-
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L443
 
 
 ### COMPARISONS: != IS MORE EFFICIENT THAN > IN REQUIRE (6 GAS LESS)
@@ -20,23 +20,23 @@ Proof: While it may seem that > 0 is cheaper than !=, this is only true without 
 
 I suggest changing > 0 with != 0 here:
 
-File: src\Vault.sol [Line 187]()
+File: src\Vault.sol [Line 187](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L187)
 ```
           require(msg.value > 0, "ZeroValue");
 ```
-File: src\oracles\PegOracle.sol [Line 98]()
+File: src\oracles\PegOracle.sol [Line 98](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L98)
 ```
           require(price1 > 0, "Chainlink price <= 0");
 ```
-File: src\oracles\PegOracle.sol [Line 121]()
+File: src\oracles\PegOracle.sol [Line 121](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L121)
 ```
           require(price2 > 0, "Chainlink price <= 0");
 ```
-File: src\rewards\StakingRewards.sol [Line 119]()
+File: src\rewards\StakingRewards.sol [Line 119](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/StakingRewards.sol#L119)
 ```
           require(amount > 0, "Cannot withdraw 0");
 ```
-File: src\rewards\StakingRewards.sol [Line 134]()
+File: src\rewards\StakingRewards.sol [Line 134](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/StakingRewards.sol#L134)
 ```
 if (reward > 0) {
 ```
@@ -48,13 +48,54 @@ Custom errors save ~50 gas each time they’re hit by avoiding having to allocat
 Custom errors are defined using the error statement, which can be used inside and outside of contracts (including interfaces and libraries).
 see [Source](https://blog.soliditylang.org/2021/04/21/custom-errors/)
 
-File: src\oracles\PegOracle.sol [Line 23]()
+File: src\oracles\PegOracle.sol [Line 23](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L23)
 ```
         require(_oracle1 != address(0), "oracle1 cannot be the zero address");
 ```
-File: src\oracles\PegOracle.sol [Line 24]()
+File: src\oracles\PegOracle.sol [Line 24](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L24)
 ```
         require(_oracle2 != address(0), "oracle2 cannot be the zero address");
+```
+File: src\oracles\PegOracle.sol [Line 25](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L25)
+```
+        require(_oracle1 != _oracle2, "Cannot be same Oracle");
+```
+File: src\oracles\PegOracle.sol [Line 28-31](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L28-L31)
+```
+        require(
+            (priceFeed1.decimals() == priceFeed2.decimals()),
+            "Decimals must be the same"
+        );
+```
+File: src\oracles\PegOracle.sol [Line 98](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L98)
+```
+          require(price1 > 0, "Chainlink price <= 0");
+```
+File: src\oracles\PegOracle.sol [Line 99-102](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L99-L102)
+```
+        require(
+            answeredInRound1 >= roundID1,
+            "RoundID from Oracle is outdated!"
+        );
+```
+File: src\oracles\PegOracle.sol [Line 103](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L103)
+```
+        require(timeStamp1 != 0, "Timestamp == 0 !");
+```
+File: src\oracles\PegOracle.sol [Line 121](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L121)
+```
+        require(price2 > 0, "Chainlink price <= 0");
+```
+File: src\oracles\PegOracle.sol [Line 122-125](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L122-L125)
+```
+        require(
+            answeredInRound2 >= roundID2,
+            "RoundID from Oracle is outdated!"
+        );
+```
+File: src\oracles\PegOracle.sol [Line 126](https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L126)
+```
+        require(timeStamp2 != 0, "Timestamp == 0 !");
 ```
 File: src\rewards\StakingRewards.sol [Line 217-220]()
 ```
