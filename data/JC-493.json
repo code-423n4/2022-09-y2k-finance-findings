@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "JC",
+  "address": "0xfc06b4c7b226c0be3766656fe4165592d9e7749f",
+  "risk": "2",
+  "title": "Chainlink's latestRoundData might return stale or incorrect results",
+  "issueId": 493,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/493"
+}
