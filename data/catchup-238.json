@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "catchup",
+  "address": "0xb159beeb1dea94440820f9a06a2f613974467e0e",
+  "risk": "3",
+  "title": "Early user can manipulate pricePerShare",
+  "issueId": 238,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/238"
+}
