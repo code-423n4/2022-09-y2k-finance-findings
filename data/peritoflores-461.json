@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "peritoflores",
+  "address": "0xcc9c3d6ed709d47255815ff5b5bb17a745b7ceed",
+  "risk": "3",
+  "title": "Improper access control in withdraw at Vault.sol",
+  "issueId": 461,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/461"
+}
