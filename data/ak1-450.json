@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "ak1",
+  "address": "0xf7a08c2c341bde5e17103d4780d1b465011a2a31",
+  "risk": "2",
+  "title": "VaultFactory.sol : changeTreasury, changeTimewindow, changeController - all these function will not update the vault parameters as they are read from memory.",
+  "issueId": 450,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/450"
+}
