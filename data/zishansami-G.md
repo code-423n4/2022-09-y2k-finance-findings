@@ -1,8 +1,36 @@
 ## Gas Optimizations
  *** 
 
+### G-01: No need of storing `epochEnd` in `indexEpochs` mapping in the factory contract, when it is not being used in the contract logic at all and when it is already being publicly stored and used in Vault contract in `epochs` mapping.
 
-### G-01: pre-increment `++i/--i` costs less gas than post-increment `i++/i--`
+This will save more than 20000 gas per call to `deployMoreAssets()` in VaultFactory contract
+
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L275
+```solidity
+src/VaultFactory.sol
+
+276:                indexEpochs[_marketVault.index].push(_marketVault.epochEnd);
+
+```
+
+ *** 
+
+### G-02: Move the following check from `createNewMarket()` to `setController()` function in VaultFactory.sol and save gas on each call to `createNewMarket` 
+
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L187-L190
+```solidity
+src/VaultFactory.sol
+
+188:                if(
+189:                    IController(controller).getVaultFactory() != address(this)
+190:                    )
+191:                    revert AddressFactoryNotInController();
+
+```
+
+ *** 
+
+### G-03: pre-increment `++i/--i` costs less gas than post-increment `i++/i--`
 Saves 6 gas per loop in a for loop
 
 Total instances of this issue: 1
@@ -19,7 +47,7 @@ src/Vault.sol
  *** 
 
 
-### G-02: `++i/i++` should be placed in unchecked blocks to save gas as it is impossible for them to overflow in for and while loops
+### G-04: `++i/i++` should be placed in unchecked blocks to save gas as it is impossible for them to overflow in for and while loops
 Unchecked keyword is available in solidity version `0.8.0` or higher and can be applied to iterator variables to save gas. 
 Saves more than `30 gas` per loop.
 
@@ -37,7 +65,7 @@ src/Vault.sol
  *** 
 
 
-### G-03: `x += y` costs more gas than `x = x + y` for state variables
+### G-05: `x += y` costs more gas than `x = x + y` for state variables
 
 Total instances of this issue: 1
 
@@ -53,7 +81,7 @@ src/VaultFactory.sol
  *** 
 
 
-### G-04: No need to compare boolean expressions with boolean literals, directly use the expression
+### G-06: No need to compare boolean expressions with boolean literals, directly use the expression
 if (<x> == true) ==> if (<x>)
 if (<x> == false) => if (!<x>)
 
@@ -124,7 +152,7 @@ src/rewards/RewardsFactory.sol
  *** 
 
 
-### G-05: No need to use SafeMath if the solidity version is 0.8.0 or higher
+### G-07: No need to use SafeMath if the solidity version is 0.8.0 or higher
 Solidity version 0.8.0 or higher has internal overflow/underflow checks, so using SafeMath adds overhead
 
 Total instances of this issue: 2
@@ -150,12 +178,86 @@ src/rewards/StakingRewards.sol
  *** 
 
 
-### G-06: Adding `payable` to functions which are only meant to be called by specific actors like `onlyOwner` will save gas cost
+### G-08: Adding `payable` to functions which are only meant to be called by specific actors like `onlyAdmin`, `onlyFactory` and `onlyController`  will save gas cost
 Marking functions payable removes additional checks for whether a payment was provided, hence reducing gas cost
 
-Total instances of this issue: 10
+Total instances of this issue: 17
 
 instance #1
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L277
+```solidity
+src/Vault.sol
+
+277:    function changeTreasury(address _treasury) public onlyFactory {
+
+```
+
+instance #2
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L287
+```solidity
+src/Vault.sol
+
+287:    function changeTimewindow(uint256 _timewindow) public onlyFactory {
+
+```
+
+instance #3
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L295
+```solidity
+src/Vault.sol
+
+295:    function changeController(address _controller) public onlyFactory {
+
+```
+
+instance #4
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L307-L310
+```solidity
+src/Vault.sol
+
+307:    function createAssets(uint256 epochBegin, uint256 epochEnd, uint256 _withdrawalFee)
+308:        public
+309:        onlyFactory
+310:    {
+
+```
+
+instance #5
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L336-L340
+```solidity
+src/Vault.sol
+
+336:    function endEpoch(uint256 id, bool depeg)
+337:        public
+338:        onlyController
+339:        marketExists(id)
+340:    {
+
+```
+
+instance #6
+Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L350
+```solidity
+src/Vault.sol
+
+350:    function setClaimTVL(uint256 id, uint256 claimTVL) public onlyController {
+
+```
+
+instance #7
+Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L360-L364
+```solidity
+src/Vault.sol
+
+360:    function sendTokens(uint256 id, address _counterparty)
+361:        public
+362:        onlyController
+363:        marketExists(id)
+364:    {
+
+```
+
+instance #8
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L178-L186
 ```solidity
 src/VaultFactory.sol
@@ -172,7 +274,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #2
+instance #9
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L248-L253
 ```solidity
 src/VaultFactory.sol
@@ -186,7 +288,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #3
+instance #10
 Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L295
 ```solidity
 src/VaultFactory.sol
@@ -195,7 +297,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #4
+instance #11
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L308-L311
 ```solidity
 src/VaultFactory.sol
@@ -207,7 +309,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #5
+instance #12
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L327-L330
 ```solidity
 src/VaultFactory.sol
@@ -219,7 +321,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #6
+instance #13
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L345-L348
 ```solidity
 src/VaultFactory.sol
@@ -231,7 +333,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #7
+instance #14
 Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L366
 ```solidity
 src/VaultFactory.sol
@@ -240,7 +342,7 @@ src/VaultFactory.sol
 
 ```
 
-instance #8
+instance #15
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L213-L216
 ```solidity
 src/rewards/StakingRewards.sol
@@ -252,7 +354,7 @@ src/rewards/StakingRewards.sol
 
 ```
 
-instance #9
+instance #16
 Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L225
 ```solidity
 src/rewards/StakingRewards.sol
@@ -261,7 +363,7 @@ src/rewards/StakingRewards.sol
 
 ```
 
-instance #10
+instance #17
 Permalink: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/RewardsFactory.sol#L83-L87
 ```solidity
 src/rewards/RewardsFactory.sol
@@ -277,7 +379,7 @@ src/rewards/RewardsFactory.sol
  *** 
 
 
-### G-07: No need to initialize non-constant/non-immutable variables to zero
+### G-09: No need to initialize non-constant/non-immutable variables to zero
 Since the default value is already zero, overwriting is not required.
 Saves `8 gas` per instance.
 
@@ -304,7 +406,7 @@ src/rewards/StakingRewards.sol
  *** 
 
 
-### G-08: Using uints/ints smaller than 256 bits increases overhead
+### G-10: Using uints/ints smaller than 256 bits increases overhead
 Gas usage becomes higher with uint/int smaller than 256 bits because EVM operates on 32 bytes and uses additional operations to reduce the size from 32 bytes to the target size.
 
 Total instances of this issue: 6
@@ -400,7 +502,7 @@ src/oracles/PegOracle.sol
  *** 
 
 
-### G-09: Using custom errors rather than revert()/require() strings will save deployment gas
+### G-11: Using custom errors rather than revert()/require() strings will save deployment gas
 Custom errors are available from solidity version 0.8.4.
 
 Total instances of this issue: 19
