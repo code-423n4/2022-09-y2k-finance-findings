@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "unforgiven",
+  "address": "0x6e6c53f81e310d53387dc2166ee9a632cf768fa1",
+  "risk": "2",
+  "title": "User fund lost because they can't withdraw() their funds before epoch startTime and they have to stuck in positions that become unprofitable even when epoch is not started",
+  "issueId": 447,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/447"
+}
