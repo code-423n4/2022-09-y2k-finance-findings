@@ -9,7 +9,7 @@ Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFacto
 ```solidity
 src/VaultFactory.sol
 
-276:                indexEpochs[_marketVault.index].push(_marketVault.epochEnd);
+275:                indexEpochs[_marketVault.index].push(_marketVault.epochEnd);
 
 ```
 
@@ -21,10 +21,10 @@ Link: https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFacto
 ```solidity
 src/VaultFactory.sol
 
-188:                if(
-189:                    IController(controller).getVaultFactory() != address(this)
-190:                    )
-191:                    revert AddressFactoryNotInController();
+187:                if(
+188:                    IController(controller).getVaultFactory() != address(this)
+189:                    )
+190:                    revert AddressFactoryNotInController();
 
 ```
 
