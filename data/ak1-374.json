@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "ak1",
+  "address": "0xf7a08c2c341bde5e17103d4780d1b465011a2a31",
+  "risk": "2",
+  "title": "Vault.sol#L360 : sendTokens function does not validate the _counterparty",
+  "issueId": 374,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/374"
+}
