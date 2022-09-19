@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "francoHacker",
+  "address": "0x06b2c7185a2ce602612a8b465059c8463fe85d13",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 455,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/455"
+}
