@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "scaraven",
+  "address": "0xac3a826c8ea76ab6fce817d3e54da0acb5fd30d5",
+  "risk": "2",
+  "title": "High centralisation risk in the protocol",
+  "issueId": 381,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/381"
+}
