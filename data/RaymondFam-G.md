@@ -92,3 +92,19 @@ Strings that are more than 32 characters will require more than 1 storage slot, 
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/StakingRewards.sol#L228
 
+## Private Function Embedded Modifier to Reduce Contract Size
+Consider having the logic of a modifier embedded through an internal or private function to reduce contract size if need be. For instance, the following instance of modifier may be rewritten as follows:
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Controller.sol#L73-L77
+
+```
+    function _onlyAdmin() private view {
+        if(msg.sender != admin)
+            revert AddressNotAdmin();
+    }
+
+    modifier onlyAdmin() {
+        _onlyAdmin();
+        _;
+    }
+```
