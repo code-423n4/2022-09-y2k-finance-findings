@@ -7,11 +7,6 @@ If someone would call `withdraw` after epoch expires but before `triggerEndEpoch
 Solution: add idFinalTVL check in `epochHasEnded `modifier
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L96
 
-## Can't work with tokens with more then 18 decimals
-https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L299
-https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L73
-This will revert if priceFeed outputs price with more then 18 decimals. Those are pretty rare, but it should be noted
-
 ## Redundant token transfer
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L168
 this line can be removed, right after it tokens transfered other way 
