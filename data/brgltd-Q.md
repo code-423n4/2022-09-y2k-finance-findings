@@ -251,3 +251,22 @@ function withdraw(
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L203-L234
 
+# [NC-06] Missing NATSPEC
+
+```
+function _createEpoch(
+    MarketVault memory _marketVault
+) internal {
+```
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/VaultFactory.sol#L268-L270
+
+# [NC-07] Use uint256/uint across the project
+
+The project seems to have chosen uint256 on all instances except the one highlighted bellow. Consider refactor the error argument on the instance bellow to `uint256` to be consistent with the other definitions in the project.
+
+```
+error MarketDoesNotExist(uint marketId);
+```
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/RewardsFactory.sol#L17
