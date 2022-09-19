@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "Chom",
+  "address": "0xc4c459668fb29833d7dee997d7d347e2634c9cef",
+  "risk": "2",
+  "title": "Missing check for delayed oracle price",
+  "issueId": 341,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/341"
+}
