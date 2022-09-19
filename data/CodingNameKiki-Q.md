@@ -54,7 +54,7 @@ Add a non-zero address check to the function changeTreasury(), so it can revert 
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/VaultFactory.sol#L308
 
-Non-critical Issues - 74 instances over 13 Non-critical Issues
+Non-critical Issues - 78 instances over 14 Non-critical Issues
 
 N-01. Public functions not called by the contract should be declared external instead
 
@@ -161,10 +161,14 @@ N-09. Override function arguments that are unused should have the variable name 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L203
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/StakingRewards.sol#L183
 
-N-10. Use a scientific notation (e.g. 1e18) rather than exponentiation (e.g. 1**18)
+N-10. Constant redefined elsewhere
 
-https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L299
-https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L73
+Consider defining in only one contract so that values cannot become out of sync when only one location is updated. A cheap way to store constants in a single location is to create an internal constant in a library. If the variable is a local cache of another contract's value, consider making the cache variable internal or private, which will require external users to query the contract with the source of truth, so that callers don't get out of sync.
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L12
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L13
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L15
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L16
 
 N-11. Event indexing
 
@@ -199,3 +203,8 @@ There are units for seconds, minutes, hours, days, and weeks
 https://docs.soliditylang.org/en/latest/units-and-global-variables.html#time-units
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L15
+
+N-14. Use a scientific notation (e.g. 1e18) rather than exponentiation (e.g. 1**18)
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L299
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/oracles/PegOracle.sol#L73
