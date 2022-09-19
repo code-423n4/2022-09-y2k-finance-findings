@@ -47,3 +47,18 @@ Should be changed to
             controller
         );
 ```
+
+## Use safeTransfer instead of transfer to handle non-standard tokens such as USDT and the return value of the transfer is not checked
+
+USDT doesn't return any boolean success on transfer
+
+Vault.sol
+
+```
+167: asset.transferFrom(msg.sender, address(this), shares);
+228: asset.transfer(treasury, feeValue);
+231: asset.transfer(receiver, entitledShares);
+365: asset.transfer(_counterparty, idFinalTVL[id]);
+```
+
+Should use safeTransfer / safeTransferFrom instead to handle optional return and checking of boolean success.
