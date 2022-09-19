@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "kv",
+  "address": "0x30fcc80e3cb5311e6690595c84a7a9ca4e9f42bf",
+  "risk": "2",
+  "title": "Unbounded Loop can lead to DOS due to epochs array.",
+  "issueId": 372,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/372"
+}
