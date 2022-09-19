@@ -264,3 +264,8 @@ Remember that the equivalent of (a && b) is !(!a || !b)
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L96
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L215-L217
+
+Example for - https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L96
+
+- 96: if((block.timestamp < id) && idDepegged[id] == false)
++ 96: if((!(block.timestamp < id)) || !(idDepegged[id] == false))
