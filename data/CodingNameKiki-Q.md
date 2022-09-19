@@ -1,4 +1,4 @@
-1. Assert Violation
+1. Assert Violation. 
 
 The Solidity assert() function is meant to assert invariants. Properly functioning code should never reach a failing assert statement. A reachable assertion can mean one of two things:
 
@@ -10,7 +10,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147ed
 Recommended:
 Consider whether the condition checked in the assert() is actually an invariant. If not, replace the assert() statement with a require() statement.If the exception is indeed caused by unexpected behaviour of the code, fix the underlying bug(s) that allow the assertion to be violated.
 
-2. Missing checks for address(0x0) when assigning values to address state variables
+2. Missing checks for address(0x0) when assigning values to address state variables. 
 
 Zero-address checks are a best practice for input validation of critical address parameters. While the codebase applies this to most cases, there are many places where this is missing in constructors and setters.
 Impact: Accidental use of zero-addresses may result in exceptions, burn fees/tokens, or force redeployment of contracts.
@@ -22,7 +22,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L152-L
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L182-L193
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/rewards/RewardsFactory.sol#L68-L70
 
-3. Several critical operations do not trigger events, which will make it difficult to review the correct behavior of the contracts once deployed.
+3. Several critical operations do not trigger events, which will make it difficult to review the correct behavior of the contracts once deployed. 
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L182-L193
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L277
@@ -178,4 +178,20 @@ Add a non-zero address check to the function changeTreasury(), so it can revert 
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/VaultFactory.sol#L308
 
-18.
+18. Not using the named return value anywhere in the function is confusing
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L261
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L260
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L438
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/VaultFactory.sol#L178
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/VaultFactory.sol#L385
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/RewardsFactory.sol#L83
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/RewardsFactory.sol#L148
+
+19. Numeric values having to do with time should use time units for readability
+
+There are units for seconds, minutes, hours, days, and weeks
+
+https://docs.soliditylang.org/en/latest/units-and-global-variables.html#time-units
+
+https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L15
