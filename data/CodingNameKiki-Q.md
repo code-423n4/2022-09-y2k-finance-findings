@@ -1,4 +1,4 @@
-Low Risk Issues:
+Low Risk Issues - 19 instances over 6 Low risk Issues
 
 L-01. Assert Violation. 
 
@@ -54,8 +54,7 @@ Add a non-zero address check to the function changeTreasury(), so it can revert 
 
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/VaultFactory.sol#L308
 
-Non-critical Issues:
-
+Non-critical Issues - 74 instances over 13 Non-critical Issues
 
 N-01. Public functions not called by the contract should be declared external instead
 
