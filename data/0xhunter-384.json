@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0xhunter",
+  "address": "0x32cc5d8c4ab179d5c7da1a012680385a9f8dfbe6",
+  "risk": "2",
+  "title": "lack of check for double entry point tokens",
+  "issueId": 384,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/384"
+}
