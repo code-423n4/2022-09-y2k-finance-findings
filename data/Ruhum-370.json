@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "Ruhum",
+  "address": "0x1708bdfa333f81993a1edcfec6821a3ec563ea06",
+  "risk": "3",
+  "title": "Bots can prevent a depeg event from being triggered for an epoch",
+  "issueId": 370,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/370"
+}
