@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "karanctf",
+  "address": "0xc7791d7b5eef26cda88504c3032fc7af4e226d11",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 236,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/236"
+}
