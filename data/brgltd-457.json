@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "brgltd",
+  "address": "0xb18b052b674c0ce5e2649ed4e45bb8da2cb70851",
+  "risk": "2",
+  "title": "Possible DoS when retrieving the next epoch due to a out of bounds loop",
+  "issueId": 457,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/457"
+}
