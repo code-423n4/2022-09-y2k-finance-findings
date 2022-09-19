@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "ubermensch",
+  "address": "0x632969bb3824989938c687a2152356699d24c2c3",
+  "risk": "2",
+  "title": "Missing Transfer Verification",
+  "issueId": 496,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/496"
+}
