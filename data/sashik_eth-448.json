@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "sashik_eth",
+  "address": "0xc43622e0f55c772fdc2fd876ce84dfc50d6ab797",
+  "risk": "3",
+  "title": "Return value of transferFrom() does not check ",
+  "issueId": 448,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/448"
+}
