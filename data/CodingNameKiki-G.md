@@ -1,6 +1,6 @@
 1. No need to explicitly initialize variables with default values
 
-a) one function in the contract Vault, is using the fault value of a variable
+a) one function in the contract Vault, is using the default value of a variable
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L443
 
 2. Use a memory location instead of storage
@@ -17,6 +17,9 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147ed
 
 3. Arrays can be cached to save gas.
 
+a) few functions in the contract Controller have arrays, which can be cached
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L86
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Controller.sol#L200
+
+b) one function in the contract Vault have array, which can be cached
 https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L431
