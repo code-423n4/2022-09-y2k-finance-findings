@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "rbserver",
+  "address": "0x4bd9605a3e546f3400df2c2be7b1c775aeea56bd",
+  "risk": "2",
+  "title": "It is possible that receiver and treasury can receive nothing when calling `withdraw` function due to division being performed before multiplication",
+  "issueId": 378,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/378"
+}
