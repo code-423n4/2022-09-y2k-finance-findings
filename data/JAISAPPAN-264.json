@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "JAISAPPAN",
+  "address": "0x6a344cd7f1cfc77b9239ff6ed46b5b3adc44f466",
+  "risk": "3",
+  "title": "When testing for withdrawal approval on behalf of another user, the intended result is NOT getting BECAUSE of the usage of \"isApprovedForAll\" function. This fucntion can only get desired results when EIP 4626 is combined with ERC-20 tokens.Y2K protocol exposes many scopes. To enumarate the scopes, consider the the combination of different peged assets(market index), different strike prices and different epochs.So suggestion is to consider EIP-1761( Scoped Approval Interface), instead of \"isApprovedForAll\" function, in order to get the desired result as per the current logic implimented in the Y2K protocol.",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/264"
+}
