@@ -266,11 +266,9 @@ https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147ed
 https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L215-L217
 
 Example for - https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L96
-
-- 96: if((block.timestamp < id) && idDepegged[id] == false)
-+ 96: if(!((block.timestamp > id) || idDepegged[id] != false))  (saves 4 gas)
+-96: if((block.timestamp < id) && idDepegged[id] == false)
++96: if(!((block.timestamp > id) || idDepegged[id] != false))  (saves 4 gas)
 
 Example for - https://github.com/code-423n4/2022-09-y2k-finance/blob/main/src/Vault.sol#L215-L217
-
--  215: if(msg.sender != owner && isApprovedForAll(owner, receiver) == false)
-+ 215: if(!(msg.sender == owner || isApprovedForAll(owner, receiver) != false))  ( saves 4 gas )
+-215: if(msg.sender != owner && isApprovedForAll(owner, receiver) == false)
++215: if(!(msg.sender == owner || isApprovedForAll(owner, receiver) != false))
