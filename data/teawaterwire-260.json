@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "teawaterwire",
+  "address": "0x7a0f0b39fea907deb70a483387fc6d42fa99adfd",
+  "risk": "2",
+  "title": "Brittle price calculation in PegOracle",
+  "issueId": 260,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/260"
+}
