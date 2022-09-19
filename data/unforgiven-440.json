@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "unforgiven",
+  "address": "0x6e6c53f81e310d53387dc2166ee9a632cf768fa1",
+  "risk": "2",
+  "title": "Some of user funds stuck in contract because of division rounding error in beforeWithdraw()",
+  "issueId": 440,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/440"
+}
