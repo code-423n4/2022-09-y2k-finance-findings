@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "rbserver",
+  "address": "0x4bd9605a3e546f3400df2c2be7b1c775aeea56bd",
+  "risk": "3",
+  "title": "Users who deposit in one vault can lose all deposits and receive nothing when counterparty vault has no deposits",
+  "issueId": 312,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/312"
+}
