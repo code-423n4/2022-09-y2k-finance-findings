@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "Respx",
+  "address": "0x006949f2f1b70d35afda9ded6cb9f3e152fa031b",
+  "risk": "3",
+  "title": "Theft/Locking of Withdrawable Vault Tokens if Operator Approval Granted",
+  "issueId": 371,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/371"
+}
