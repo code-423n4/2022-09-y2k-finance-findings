@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "lukris02",
+  "address": "0x1cbb572900d024a5996088758cd45e4b24ad276e",
+  "risk": "2",
+  "title": "Possible DoS in function ```getNextEpoch()``` because unbounded loop can run out of gas",
+  "issueId": 331,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/331"
+}
