@@ -54,3 +54,8 @@ Controller.sol:93:        if(vault.idExists(epochEnd) == false)
 Controller.sol:211:        if(insrVault.idExists(epochEnd) == false || riskVault.idExists(epochEnd) == false)
 ```
 
+## [G-7] <x> += <y>` costs more gas than `<x> = <x> + <y>`
+```solidity
+VaultFactory.sol:195:        marketIndex += 1;
+
+```
