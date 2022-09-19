@@ -1,0 +1,3 @@
+1. Could use `unchecked` here https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/Vault.sol#L227 because `feeValue` can not exceed `entitledShares` 
+2. Could use `unchecked` here https://github.com/code-423n4/2022-09-y2k-finance/blob/2175c044af98509261e4147edeb48e1036773771/src/rewards/StakingRewards.sol#L192 since the `periodFinish > block.timestamp` here
+2. The contract `StakingRewards` could remove the usage of `SafeMath` since compiler version is `0.8.15` which has default overflow/underflow checks for better readability and removing unnecessary extra checks
