@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "0xDecorativePineapple",
+  "address": "0xbfaeba1ca7a282d27607a8353801cdaf35305a91",
+  "risk": "3",
+  "title": "Price Denominator logic doesn't work with underlying assets having decimals other than 8  ",
+  "issueId": 300,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/300"
+}
