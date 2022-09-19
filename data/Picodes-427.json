@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "Picodes",
+  "address": "0x9843c8a8263308a309bfc3c2d1c308126d8e754d",
+  "risk": "2",
+  "title": "`depositETH` needs to be disabled for non WETH vaults",
+  "issueId": 427,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/427"
+}
