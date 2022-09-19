@@ -1,0 +1,3 @@
+- Use a more recent version of Solidity.
+	- Use latest 0.8.17 for security. [release note](https://blog.soliditylang.org/2022/09/08/solidity-0.8.17-release-announcement/)
+	- Instances: files within the entire scope.
