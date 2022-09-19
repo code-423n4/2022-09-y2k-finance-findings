@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "yixxas",
+  "address": "0x9079426b034c524ebd6cac9cb78dbe8cb0749f4e",
+  "risk": "2",
+  "title": "Admin can potentially rug premium sellers by changing oracle to a malicious contract, force creating a depeg situation",
+  "issueId": 396,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/396"
+}
