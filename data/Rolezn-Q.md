@@ -1,5 +1,79 @@
+## (1) Missing WhenNotPaused modifier
 
-## (1) getOracle1_Price() is not being used by latestRoundData() in PegOracle.sol
+Severity: Low
+
+Some external function have whenNotPasued modifier. However, several other external functions are missing the whenNotPaused modifiers and can potentially cause complications if called during pause.
+
+## Proof of Concept
+	function exit() external {
+	        withdraw(_balances[msg.sender]);
+	        getReward();
+	    }
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingRewards.sol#L109-L112
+
+    function withdraw(uint256 amount)
+        public
+        nonReentrant
+        updateReward(msg.sender)
+    {
+        require(amount > 0, "Cannot withdraw 0");
+        _totalSupply = _totalSupply.sub(amount);
+        _balances[msg.sender] = _balances[msg.sender].sub(amount);
+        stakingToken.safeTransferFrom(
+            address(this),
+            msg.sender,
+            id,
+            amount,
+            ""
+        );
+        emit Withdrawn(msg.sender, id, amount);
+    }
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingRewards.sol#L114-L130
+
+    function getReward() public nonReentrant updateReward(msg.sender) {
+        uint256 reward = rewards[msg.sender];
+        if (reward > 0) {
+            rewards[msg.sender] = 0;
+            rewardsToken.safeTransfer(msg.sender, reward);
+            emit RewardPaid(msg.sender, reward);
+        }
+    }
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingRewards.sol#L132-L139
+
+## Impact
+In case where the governance wants to stop all activity, some functions can still be called and could cause complications.
+
+## Recommended Mitigation Steps
+Add whenNotPaused to missing functions.
+
+## (2) Withdraw event uses wrong parameter
+
+Severity: Low
+
+The event Withdraw states that:
+
+	* @param assets Amount of owner assets to withdraw from vault
+	* @param shares Amount of owner shares to burn
+	
+The Withdraw event in Vault.withdraw emits the 'assets' variable which is the initial, desired amount to withdraw. It should emit the actual withdrawn amount instead, which is transferred in the 'entitledShares' variable.
+In addition, the shares parameter is also incorrect as it inputs the 'entitledShares' variable instead of the 'shares' variable which is the amount of 'shares' to burn.
+
+## Proof of Concept
+
+	emit Withdraw(msg.sender, receiver, owner, id, assets, entitledShares);
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/Vault.sol#L230
+
+## Impact
+
+The actual withdrawn amount, which can be lower than assets , is part of the event.
+This is usually not what you want (and it can already be decoded from the function argument).
+
+## Recommended Mitigation Steps
+
+Use it or remove it.
+
+
+## (3) getOracle1_Price() is not being used by latestRoundData() in PegOracle.sol
 
 Severity: Low
 
@@ -82,7 +156,7 @@ PegOracle.latestRoundData() should call getOracle1_Price() and it should return:
     )
 
 
-## (2) Use Safetransfer Instead Of Transfer 
+## (4) Use Safetransfer Instead Of Transfer 
 
 Severity: Low
 
@@ -113,7 +187,7 @@ Consider using safeTransfer/safeTransferFrom or require() consistently.
 
 
 
-## (3) Constants Should Be Defined Rather Than Using Magic Numbers
+## (5) Constants Should Be Defined Rather Than Using Magic Numbers
 
 Severity: Non-Critical
 
@@ -127,7 +201,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/oracles/PegOracl
 
 
 
-## (4) Event Is Missing Indexed Fields
+## (6) Event Is Missing Indexed Fields
 
 Severity: Non-Critical
 
@@ -212,7 +286,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingR
 
 
 
-## (5) Inconsistent Spacing In Comments
+## (7) Inconsistent Spacing In Comments
 
 Severity: Non-Critical
 
@@ -258,7 +332,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingR
 
 
 
-## (6) Missing event for critical parameter change
+## (8) Missing event for critical parameter change
 
 Severity: Non-Critical
 
@@ -283,7 +357,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/Vault.sol#L350
 
 
 
-## (7) Implementation contract may not be initialized
+## (9) Implementation contract may not be initialized
 
 OpenZeppelin recommends that the initializer modifier be applied to constructors. 
 Per OZs Post implementation contract should be initialized to avoid potential griefs or exploits.
@@ -327,7 +401,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/oracles/PegOracl
         address _factory,
         address _admin
     ) {
-https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/RewardsFactory.sol#L8
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/RewardsFactory.sol#L63-L67
 
 	contract StakingRewards is
     IStakingRewards,
@@ -342,7 +416,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingR
 
 
 
-## (8) Public Functions Not Called By The Contract Should Be Declared External Instead
+## (10) Public Functions Not Called By The Contract Should Be Declared External Instead
 
 Severity: Non-Critical
 
@@ -372,7 +446,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/VaultFactory.sol
 
 
 
-## (9) Adding A Return Statement When The Function Defines A Named Return Variable, Is Redundant
+## (11) Adding A Return Statement When The Function Defines A Named Return Variable, Is Redundant
 
 Severity: Non-Critical
 
@@ -385,7 +459,7 @@ Severity: Non-Critical
 https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/Controller.sol#L317
 
 
-## (10) Large multiples of ten should use scientific notation
+## (12) Large multiples of ten should use scientific notation
 
 Severity: Non-Critical
 
@@ -406,7 +480,7 @@ https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/oracles/PegOracl
 
 
 
-## (11) Use of Block.Timestamp
+## (13) Use of Block.Timestamp
 
 Severity: Non-Critical
 
@@ -459,7 +533,7 @@ Block timestamps should not be used for entropy or generating random numbers—i
 Time-sensitive logic is sometimes required; e.g., for unlocking contracts (time-locking), completing an ICO after a few weeks, or enforcing expiry dates. It is sometimes recommended to use block.number and an average block time to estimate times; with a 10 second block time, 1 week equates to approximately, 60480 blocks. Thus, specifying a block number at which to change a contract state can be more secure, as miners are unable to easily manipulate the block number.
 
 
-## (12) Open TODOs
+## (14) Open TODOs
 
 Severity: Non-Critical
 
@@ -471,7 +545,7 @@ Code architecture, incentives, and error handling/reporting questions/issues sho
 https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/Vault.sol#L196
 
 
-## (13) Commented Code in Controller.sol
+## (15) Commented Code in Controller.sol
 
 Severity: Non-Critical
 
@@ -486,7 +560,7 @@ Severity: Non-Critical
     ) = sequencerUptimeFeed.latestRoundData();
 https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/Controller.sol#L266-L273
 
-## (14) Insufficient NATSPEC documentation
+## (16) Insufficient NATSPEC documentation
 
 Severity: Non-Critical
 
@@ -515,3 +589,50 @@ For example:
         emit Staked(msg.sender, id, amount);
     }
 https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/StakingRewards.sol#L90-L107
+
+## (17) Unused event may be unused code or indicative of missed emit/logic
+
+Severity: Non-Critical
+
+## Impact
+
+Events that are declared but not used may be indicative of unused declarations where it makes sense to remove them for better readability/maintainability/auditability, or worse indicative of a missing emit which is bad for monitoring or missing logic that would have emitted that event.
+Event changedVaultFee is missing an emit.
+
+## Proof of Concept
+
+	event changedVaultFee(uint256 indexed _marketIndex, uint256 _feeRate);
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/VaultFactory.sol#L97
+
+## Recommended Mitigation Steps
+
+Add emit or remove event declaration.
+
+## (18) Missing parameter validation
+
+Severity: Non-Critical
+
+Some parameters of functions are not checked for invalid values:
+	• VaultFactory.constructor: all parameters could be zero
+
+## Impact
+
+Wrong user input or wallets defaulting to the zero addresses for a missing input can lead to the contract needing to redeploy or wasted gas.
+
+## Proof of Concept
+
+    constructor(
+        address _govToken,
+        address _factory,
+        address _admin
+    ) {
+        admin = _admin;
+        govToken = _govToken;
+        factory = _factory;
+    }
+https://github.com/code-423n4/2022-09-y2k-finance/tree/main/src/rewards/RewardsFactory.sol#L63-L71
+
+## Recommended Mitigation Steps
+
+Validate the parameters.
+
