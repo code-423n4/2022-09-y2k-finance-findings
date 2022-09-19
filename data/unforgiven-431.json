@@ -1,0 +1,9 @@
+{
+  "contest": 162,
+  "handle": "unforgiven",
+  "address": "0x6e6c53f81e310d53387dc2166ee9a632cf768fa1",
+  "risk": "3",
+  "title": "Users can lose funds because It's possible to call withdraw() in Vault without call to endEpoch() by Controller.triggerEndEpoch(), ",
+  "issueId": 431,
+  "issueUrl": "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues/431"
+}
