@@ -1,3 +1,11 @@
+---
+sponsor: "Y2k Finance"
+slug: "2022-09-y2k-finance"
+date: "2023-01-09"
+title: "Y2k Finance contest"
+findings: "https://github.com/code-423n4/2022-09-y2k-finance-findings/issues"
+contest: 162
+---
 
 # Overview
 
